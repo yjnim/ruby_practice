@@ -1,0 +1,83 @@
+<nav class="navbar navbar-light bg-light wwoww">
+  <span class="navbar-brand mb-0 wow"> <b> 용돈기입장 </b> </span>
+  
+</nav>
+<br>
+
+<div class="container whole">
+  
+    
+  <div class="container list">
+    <div class="container input">
+      <form action="/moneybook/moneyinput" method="POST">
+        <div class="row a">
+          <div class="col-sm">
+            <b> 날짜 </b> <input name="date" type="text" id="datepicker">
+          </div>
+          <div class="col-sm">
+            <b> 종류 </b>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="style" class="custom-control-input" value="수입">
+              <label class="custom-control-label" for="customRadio1">수입</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="style" class="custom-control-input" value="지출">
+              <label class="custom-control-label" for="customRadio2">지출</label>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2" for="inlineFormCustomSelect"> <b> 카테고리 </b> </label>
+              <select name="category" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected> 수입 or 지출 </option>
+                <option disabled="disabled">---수입</option>
+                <option value="용돈">용돈</option>
+                <option value="알바">알바</option>
+                <option disabled="disabled">---지출</option>
+                <option value="멋사 기부">멋사 기부</option>
+                <option value="식사">식사</option>
+                <option value="쇼핑">쇼핑</option>
+                <option value="유흥">유흥</option>
+                <option value="고정지출">고정지출</option>
+                <option value="경조사">경조사</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> <b> 수입 or 지출 내용 </b> </label></label>
+              <input name="content" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="입력해라.">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> <b> 액수 </b> </label></label>
+              <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="입력해라.">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary aa">Submit</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div>
+          <div class="row a">
+            <div class="col-sm"> <b> 날짜 </b> </div>
+            <div class="col-sm"> <b> 수입/지출 </b> </div>
+            <div class="col-sm"> <b> 카테고리 </b> </div>
+            <div class="col-sm"> <b> 내용 </b> </div>
+            <div class="col-sm"> <b> 액수 </b> </div>
+          </div><hr>
+          <% @all_input.each do |p| %>
+          <div class="row">
+            <div class="col-sm"><%= p.date %></div>
+            <div class="col-sm"><%= p.style %></div>
+            <div class="col-sm"><%= p.category %></div>
+            <div class="col-sm"><%= p.content %></div>
+            <div class="col-sm"><%= p.price %></div>
+          </div><hr>
+          <% end %>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,2 @@
+class Moneyinput < ApplicationRecord
+end

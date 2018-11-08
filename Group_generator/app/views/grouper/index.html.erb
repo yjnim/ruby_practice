@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#c52f24;">
+  <a class="navbar-brand gt" style="color:white;" href="#"><h4><b>이번주는 과연 누구와 함께 에러페이지를 보게될까?♡</b></h4></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<div class="container"><br>
+  <h1 class="gs" style="color:#c52f24;">데덴-찌</h1>
+  <div class="center">
+    <form class="result" method="post" action="/grouper/result_save"> <!--뽑기창-->
+      <% require 'enumerator' %>
+      <% member = ['김수민','김제인','박병준','박충호','방지영','이주현','이희원','장윤지','최준호'] %>
+      <% result = member.sort_by{rand}.each_slice(3).to_a %>
+      <% team1 = result[0].map { |element| element.to_s }.join(", ") %>
+      <% team2 = result[1].map { |element| element.to_s }.join(", ") %>
+      <% team3 = result[2].map { |element| element.to_s }.join(", ") %>
+      <% tutor = ['권용석','김재현','민동준','윤지우','이효빈'] %>
+      <% tutorresult = tutor.sort_by{rand}.each_slice(2).to_a %>
+      <% tutor1 = tutorresult[0].map { |element| element.to_s }.join(", ") %>
+      <% tutor2 = tutorresult[1].map { |element| element.to_s }.join(", ") %>
+      <% tutor3 = tutorresult[2].map { |element| element.to_s }.join(", ") %>
+      <p>  
+        <h4>첫번째 팀 : <input type="text" name="team1" value="<%= team1 %>"> ♥ 튜터 : <input type="text" name="tutor1" value="<%= tutor1 %>"></h4>
+      </p>
+      <p>
+        <h4>두번째 팀 : <input type="text" name="team2" value="<%= team2 %>"> ♥ 튜터 : <input type="text" name="tutor2" value="<%= tutor2 %>"></h4>
+      </p>
+      <p>
+        <h4>세번째 팀 : <input type="text" name="team3" value="<%= team3 %>"> ♥ 튜터 : <input type="text" name="tutor3" value="<%= tutor3 %>"></h4>
+      </p>
+      <button type="submit" class="btn btn-primary">저장</button>
+    </form>
+  </div> 
+
+</div>
+<br><hr>
+<div class="center" style="background-color:lightgray;">
+  <h2 class="gs" style="color:#c52f24;">결과</h2><br>
+  <% @all_input.each do |p| %>
+  <p>
+    첫번째 팀 : <%= p.team1 %> ♥ 튜터 : <%= p.tutor1 %>
+  </p>
+  <p>
+    두번째 팀 : <%= p.team2 %> ♥ 튜터 : <%= p.tutor2 %>
+  </p>
+  <p>
+    세번째 팀 : <%= p.team3 %> ♥ 튜터 : <%= p.tutor3 %>
+  </p>
+  <hr>
+  <% end %>
+</div>

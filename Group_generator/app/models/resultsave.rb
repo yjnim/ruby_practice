@@ -1,0 +1,2 @@
+class Resultsave < ApplicationRecord
+end
